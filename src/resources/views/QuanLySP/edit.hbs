@@ -1,0 +1,26 @@
+<div class="mt-4">
+    <a href="/quanly/stored">Quay lại</a>
+    <h3>Sửa Sản Phẩm</h3>
+    <form method="POST" action ="/quanly/{{sanpham._id}}?_method=PUT">
+    <div class="form-group">
+        <label for="tenSP">Tên Sản Phẩm</label>
+        <input type="text" class="form-control" id="tenSP" name="tenSP" value="{{sanpham.tenSP}}">
+        <p></p>
+        <label for="loaiSP">Loại Sản Phẩm</label>
+        <select class="form-control" name="loaiSP" id="loaiSP">
+        <option value="Khoai Lang">Khoai Lang</option>
+        <option value="Bí Đỏ">Bí Đỏ</option>
+        <option value="Hành Tây">Hành Tây</option>
+        <option value="Khoai Tây">Khoai Tây</option>
+        <option value="Tỏi">Tỏi</option>
+        <option value="Ớt">Ớt</option>
+        </select>
+        <label for="giaSP">Giá</label>
+        <input type="text" class="form-control" id="giaSP" name="giaSP" value="{{sanpham.giaSP}}">
+        <label for="motaSP">Mô Tả</label>
+        <input type="text" class="form-control" id="motaSP" name="motaSP" value="{{sanpham.motaSP}}">
+    </div>
+    <div class="form-group">
+    <button type="submit" class="btn btn-primary">Sửa</button>
+    </form>
+</div>

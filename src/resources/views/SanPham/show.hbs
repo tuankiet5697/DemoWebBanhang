@@ -1,0 +1,20 @@
+<div class="mt-4">
+    <div class="row">
+        {{#each sanpham}}
+        <div class="col-sm-6 col-lg-4">
+            <div class="card cart-course-item" style="margin-bottom: 30px;">
+            <a href="/sanpham/thongtin/{{this.slug}}">
+                <img class="card-img-top" src="./images/{{this.image}}" alt="Card image cap" width="350" height="220" >
+            </a>
+                <div class="card-body">
+                    <a href="/sanpham/thongtin/{{this.slug}}">
+                        <h5 class="card-title">Sản Phẩm: {{this.tenSP}}</h5>
+                    </a>
+                    <p class="card-text">Giá: {{this.giaSP}} VNĐ</p>
+                    <p class="card-text">Mô Tả: {{this.motaSP}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

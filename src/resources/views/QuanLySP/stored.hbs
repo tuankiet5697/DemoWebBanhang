@@ -1,0 +1,80 @@
+<div class="mt-4">
+    <h3>Danh Sách Sản Phẩm</h3>
+    <a href="/quanly/Menu" style="font-size: larger; color: darkblue;"> Danh Mục Quản Lý</a>
+    <p></p>
+    <a href="/quanly/trashProduct" style="font-size: larger; color: darkblue;">Thùng rác({{deletedCount}})</a>
+        <table class="table mt -4">
+            <thead>
+                <tr>
+                <th scope="col" >#</th>
+                <th scope="col" >Tên Sản Phẩm</th>
+                <th scope="col" >Loại Sản Phẩm</th>
+                <th scope="col" >Giá</th>
+                <th scope="col" >Mô Tả</th>
+                <th scope="col"  colspan="2">Hình</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each sanpham}}
+                <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td style="font-size: larger;">{{this.tenSP}}</td>
+                <td style="font-size: larger;">{{this.loaiSP}}</td>
+                <td style="font-size: larger;">{{this.giaSP}}</td>
+                <td style="font-size: larger;">{{this.motaSP}}</td>
+                <td style="font-size: larger;">{{this.image}}</td>
+                <td>
+                    <a href="/quanly/{{this._id}}/edit" class="btn btn-link" style="font-size: larger; color: darkblue;">Sửa</a>
+                    <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-product-modal" style="font-size: larger; color: darkblue;">Xóa</a>
+                </td>
+                </tr>
+                {{else}}
+                <tr>
+                  <td colspan="5" class="text-center">
+                    Không có Sản Phẩm nào.
+                  <a href="/quanly/create">Thêm Sản Phẩm mới ở đây</a>
+                  </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+</div>
+<div id ="delete-product-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xóa Sản Phẩm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn chắc chắn muốn xóa??</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-product" type="button" class="btn btn-danger">Xóa bỏ</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form name="delete-product-form" method="POST"></form>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var productId;
+        var deleteform = document.forms['delete-product-form'];
+        var btnDeleteproduct = document.getElementById('btn-delete-product');
+
+        $('#delete-product-modal').on('show.bs.modal', function (event) {    
+        var button = $(event.relatedTarget);
+        productId = button.data('id');
+        }) 
+
+        btnDeleteproduct.onclick = function(){
+            deleteform.action = '/quanly/' + productId + '?_method=DELETE';
+            deleteform.submit();
+        }
+    })
+     
+</script>

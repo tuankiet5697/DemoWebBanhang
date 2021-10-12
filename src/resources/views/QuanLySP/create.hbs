@@ -1,0 +1,30 @@
+<div class="mt-4">
+    <a href="/quanly/menu">Quay lại</a>
+    <h3>Thêm Sản Phẩm Mới</h3>
+    <form method="POST" action ="/quanly/addnew" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="tenSP">Tên Sản Phẩm</label>
+        <input type="text" class="form-control" id="tenSP" name="tenSP">
+        <p></p>
+        <label for="loaiSP">Loại Sản Phẩm</label>
+        <select class="form-control" name="loaiSP" id="loaiSP">
+        <option value="Khoai Lang">Khoai Lang</option>
+        <option value="Bí Đỏ">Bí Đỏ</option>
+        <option value="Hành Tây">Hành Tây</option>
+        <option value="Khoai Tây">Khoai Tây</option>
+        <option value="Tỏi">Tỏi</option>
+        <option value="Ớt">Ớt</option>
+        </select>
+        <p></p>
+        <label for="image">Hình</label>
+        <input type="file" id="image" name="image">
+        <p></p>
+        <label for="giaSP">Giá</label>
+        <input type="text" class="form-control" id="giaSP" name="giaSP">
+        <label for="motaSP">Mô Tả</label>
+        <input type="text" class="form-control" id="motaSP" name="motaSP">
+    </div>
+    <div class="form-group">
+    <button type="submit" class="btn btn-primary">Thêm</button>
+    </form>
+</div>
